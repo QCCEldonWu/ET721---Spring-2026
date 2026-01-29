@@ -10,3 +10,4 @@ x = 5
 y = 3
 hyp = (x**2 + y**2) ** 0.5
 print(f'The hypothenuse of {x} and {y} is {hyp}')
+print("Welcome to Git commands {username}")
