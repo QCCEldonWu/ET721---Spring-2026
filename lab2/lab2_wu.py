@@ -1,5 +1,6 @@
 """
-Student's full name
-Lab 2: mastering Git workflow
+Eldon Wu
+Lab 2: GIT commands
 """
-print("Welcome to Git commands")
+username = input("Enter a username: ")
+print("Welcome to Git commands {username}")
