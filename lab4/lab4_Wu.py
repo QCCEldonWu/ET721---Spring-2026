@@ -66,3 +66,20 @@ contacts.update({'Annie': '718-888-9999'})
 print(f"{contacts}")
 
 print("\n----- EXERCISE -----")
+users = ["peterpan@yahoo.com","annie@hotmail.com","Carl@hotmail.com","martha@gmail.com","cassie@yahoo.com","Josue@hotmail.com","John@hotmail.com"]
+
+email_counts = {
+    "gmail": 0,
+    "hotmail": 0,
+    "yahoo": 0
+}
+
+for user in users:
+    if "gmail.com" in user:
+        email_counts["gmail"] += 1
+    elif "hotmail.com" in user:
+        email_counts["hotmail"] += 1
+    elif "yahoo.com" in user:
+        email_counts["yahoo"] += 1
+
+print(email_counts)

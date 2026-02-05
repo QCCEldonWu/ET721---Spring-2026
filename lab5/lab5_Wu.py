@@ -27,3 +27,5 @@ distance = calculate_distance(x1, y1, x2, y2)
 print_distance(x1, y1, x2, y2, distance)
 
 print("\n----- EXERCISE -----")
+random_num = generate_random(1, 10)
+compare_numbers(random_num)

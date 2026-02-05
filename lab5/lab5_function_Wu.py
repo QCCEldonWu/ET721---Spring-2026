@@ -3,7 +3,7 @@ Eldon Wu
 Feb 5, 2026
 Lab 5, functions
 """
-import math
+import math, random
 #example 1
 def area_rectangle(width, length):
     return width * length
@@ -31,3 +31,15 @@ def print_distance(x1, y1, x2, y2, distance):
     print(f"The distance of point ({x1}, {y1}) and ({x2}, {y2}) is {round(distance, 2)}")
 
 # EXERCISE
+GUESS_NUMBER = 5
+
+def generate_random(min_num, max_num):
+    return random.randint(min_num, max_num)
+
+def compare_numbers(random_number):
+    if random_number < GUESS_NUMBER:
+        print("The number is smaller than the guess number")
+    elif random_number > GUESS_NUMBER:
+        print("The number is bigger than the guess number")
+    else:
+        print("You got it!")
