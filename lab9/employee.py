@@ -18,7 +18,7 @@ class Employee:
     
     @property
     def fullname(self):
-        return f"{self.first} {self.last}"  # fixed: "f{...}" → f"{...}" (missing f-string prefix)
+        return f"{self.first} {self.last}" 
     
     # method
     def apply_raise(self):
