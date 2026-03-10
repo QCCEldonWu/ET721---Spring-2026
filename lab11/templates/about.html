@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css')}}">
 </head>
 <body>
-    
+    <h1 class="title">Eldon Wu</h1>
+    <h2 class="subtitle">About Us</h2>
+    {% for i in listimages%}
+        <figure>
+            <img src="{{ url_for('static', filename = i)}}" alt="image of a thing">
+        </figure>
+    {% endfor%}
 </body>
 </html>
