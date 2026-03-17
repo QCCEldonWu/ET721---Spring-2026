@@ -1,0 +1,45 @@
+*{box-sizing: border-box}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 40px;
+    background-color: navajowhite;
+}
+.title{
+    text-align: center;
+}
+.container{
+    background-color: white;
+    padding: 20px;
+    width: 400px;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 5px #CCC;
+}
+input[type="text"], input[type="number"]{
+    width: 100%;
+    padding: 1rem;
+    margin: 8px 0px;
+}
+button[type="submit"]{
+    background-color: salmon;
+    color: navajowhite;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+button[type="submit"]:hover{
+    background-color: cadetblue;
+}
+.footer{
+    background-color: salmon;
+    color: navajowhite;
+    text-align: center;
+    margin-top: 5rem;
+    padding: 1rem;
+}
+.dbmsg{
+    color: olivedrab;
+    padding: 1rem;
+    font-weight: bolder;
+}
