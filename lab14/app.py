@@ -25,7 +25,7 @@ def index():
 
     return render_template('index.html')
 
-@app.route('/add_blog')
+@app.route('/add_blog', methods=['GET', 'POST'])
 def add_blog():
     username = request.form['username']
     email = request.form['email']
