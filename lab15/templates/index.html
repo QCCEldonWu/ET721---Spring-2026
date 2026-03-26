@@ -28,7 +28,30 @@
 
         <p id="response"></p>
     </form>
+    
+    <!-- LOADING ITEM -->
+    <section>
+        <hr>
+        <h2>ALL ITEMS</h2>
+        <button onclick="loaditems()">LOAD ITEMS</button>
 
+        <ul id="itemslist"></ul>
+    </section>
+
+    <!-- TABLE TO UPDATE AN ITEM NAME AND PRICE -->
+    <section id="updatesection" style="display: none;">
+        <h3>Update Item</h3>
+        <input type="hidden" id="updateID">
+        <label>
+            Name: <input type="text" id="updateName">
+        </label>
+
+        <label>
+            Price: <input type="text" id="updatePrice">
+        </label>
+
+        <button onclick="updateItem()">SAVE UPDATE</button>
+    </section>
     <script>
         document.querySelector("#itemform").addEventListener("submit", async function(e) {
             //prevent the form to clear the data after submission
@@ -55,6 +78,63 @@
                 document.querySelector('#response').innerHTML = "Response: ERROR" + error
             }
         })
+
+        // LOADING ITEMS
+        async function loaditems(){
+            const res = await fetch("https://special-telegram-g4rp7rjgppvr3vp4w-5000.app.github.dev/items")
+            const data = await res.json()
+
+            //collect the element to print all items
+            const list = document.querySelector("#itemslist")
+            list.innerHTML = ""
+
+            // use a loop to place each item in the json data to a list
+            for (const id in data){
+                const item = data[id]
+
+                const li = document.createElement("li")
+                li.innerHTML = `ID = ${id} | Name = ${item.name} | Price = ${item.price} 
+                <button onclick = "showupdateform('${id}', '${item.name}', '${item.price}')">Update</button>
+                <button onclick = "deleteitem('${id}')"> Delete </button>
+                `
+                list.appendChild(li)
+
+            }
+        }
+        // function to update an item
+        function showupdateform(id, name, price){
+            document.querySelector("#updatesection").style.display = "block"
+            document.querySelector("#updateID").value = id
+            document.querySelector("#updateName").value = name
+            document.querySelector("#updatePrice").value = price
+        }
+
+        //function to update price and name of an item
+        async function updateItem(){
+            const id = document.querySelector("#updateID").value
+            const name = document.querySelector("#updateName").value
+            const price = document.querySelector("#updatePrice").value
+
+            // update the json data in the localhost
+            const res = await fetch(`https://special-telegram-g4rp7rjgppvr3vp4w-5000.app.github.dev/items/${id}`, {
+                method : "PUT",
+                headers:{"Content-type" : "application/json"},
+                body: JSON.stringify({name:name, price: Number(price)})
+            })
+            const html = await res.text()
+            document.body.innerHTML = html
+        }
+
+        // function to remove an item
+        async function deleteitem(id){
+            const res = await fetch(`https://special-telegram-g4rp7rjgppvr3vp4w-5000.app.github.dev/items/${id}`, {
+                method : "DELETE",
+            })
+
+            const html = await res.text()
+            document.body.innerHTML = html
+        }
+
     </script>
 </body>
 </html>
