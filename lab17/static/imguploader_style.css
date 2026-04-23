@@ -1,0 +1,48 @@
+*{box-sizing: border-box;}
+img{width: 100%; display: block;}
+body{font-family: Arial; padding: 1.5rem;}
+.title{text-align: center; color: blue}
+#uploadForm{
+    background-color: rgb(240, 250, 250);
+    width: 1000px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 5px;
+}
+#imageInput, .btnupload{
+    font-size: 1.2rem;
+    color: rgb(70,70,70);
+}
+#imageInput::file-selector-button, .btnupload{
+    padding: 0.5rem 1.5rem;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+#imageInput::file-selector-button{
+    background-color: blue;
+}
+.btnupload{
+    background-color: darkblue;
+}
+#imageInput::file-selector-button:hover, .btnupload:hover{
+    background-color: crimson;
+}
+#message{
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgb(70,70,70);
+    font-style: italic;
+}
+.subtitle{color: darkblue;}
+.gallery{display: flex; flex-wrap: wrap;}
+.card{
+    margin: 10px;
+    text-align: center;
+    width: 300px;
+    overflow:hidden;
+    border-radius: 8px;
+}
